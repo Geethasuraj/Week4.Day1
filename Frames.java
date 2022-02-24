@@ -19,14 +19,15 @@ public class Frames {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		driver.switchTo().frame("frame1");
-		driver.findElementByXPath("//input[@type='text']").sendKeys("Frame");
+		driver.findElementByXPath("//b[@id='topic']/following::input").sendKeys("Frame");
+		driver.switchTo().frame("frame3");
 		driver.findElementByXPath("//input[@type='checkbox']").click();
 		driver.switchTo().defaultContent();
 
 		driver.switchTo().frame("frame2");
 		WebElement text = driver.findElementById("animals");
 		Select drpdwn = new Select(text);
-		drpdwn.selectByVisibleText("babycat");
+		drpdwn.selectByVisibleText("Baby Cat");
 
 	}
 
